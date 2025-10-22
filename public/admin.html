@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin paneli</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="crumbs"><a href="/">Bosh sahifa</a> › Admin</div>
+    <div class="actions"><a href="/auth.html">Hisob</a></div>
+  </header>
+  <main class="container">
+    <h1>Admin paneli</h1>
+    <div class="row">
+      <section class="panel" style="flex:1.2">
+        <h3>Kategoriyalar</h3>
+        <form id="catForm" class="form" enctype="multipart/form-data">
+          <input id="catName" placeholder="Kategoriya nomi" required />
+          <input id="catImage" type="file" accept="image/*" />
+          <img id="catPreview" alt="Preview" class="thumb" style="max-width:140px;display:none" />
+          <div class="controls">
+            <button type="submit">Qo‘shish</button>
+            <button type="button" id="catRefresh" class="secondary">Yangilash</button>
+          </div>
+          <div id="catMsg"></div>
+        </form>
+        <table class="table" id="catTable">
+          <thead><tr><th>Rasm</th><th>Nom</th><th>Amal</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="panel" style="flex:2">
+        <h3>Mashinalar</h3>
+        <form id="carForm" class="form" enctype="multipart/form-data">
+          <input id="carName" placeholder="Nomi" required />
+          <input id="carBrand" placeholder="Brend" required />
+          <input id="carPrice" placeholder="Narxi" type="number" min="0" step="1" required />
+          <select id="carCategory" required></select>
+          <input id="carImages" type="file" multiple accept="image/*" />
+          <div class="controls">
+            <button type="submit">Qo‘shish</button>
+            <button type="button" id="carRefresh" class="secondary">Yangilash</button>
+          </div>
+          <div id="carMsg"></div>
+        </form>
+        <table class="table" id="carTable">
+          <thead><tr><th>Model</th><th>Narx</th><th>Turkum</th><th>Amal</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

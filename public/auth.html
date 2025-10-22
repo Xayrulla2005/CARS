@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auth</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-left">
+      <div class="hero">
+        <h1>Welcome</h1>
+        <p>Davom etish uchun tizimga kiring yoki ro‘yxatdan o‘ting.</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-card">
+        <h2>Sign In</h2>
+        <div class="tabs hidden">
+          <button class="tab active" data-tab="login">Kirish</button>
+          <button class="tab" data-tab="register">Ro‘yxatdan o‘tish</button>
+          <button class="tab" data-tab="verify">Email tasdiqlash</button>
+          <button class="tab" data-tab="forget">Parolni unutdim</button>
+          <button class="tab" data-tab="reset">Parolni tiklash</button>
+          <button class="tab" data-tab="profile">Profil</button>
+        </div>
+
+        <section id="login" class="form">
+          <input id="loginEmail" placeholder="Email" type="email" />
+          <input id="loginPass" placeholder="Parol" type="password" />
+          <button id="loginBtn" class="btn">Kirish</button>
+          <div id="loginMsg" class="muted"></div>
+          <div class="auth-actions">
+            <button class="btn secondary" id="goRegister">Agar hisobingiz bo‘lmasa — Ro‘yxatdan o‘ting</button>
+            <button class="btn secondary" id="goForget">Parolni unutdingizmi?</button>
+          </div>
+        </section>
+
+        <section id="register" class="form" style="display:none">
+          <input id="regUser" placeholder="Foydalanuvchi nomi" />
+          <input id="regEmail" placeholder="Email" type="email" />
+          <input id="regPass" placeholder="Parol" type="password" />
+          <button id="regBtn" class="btn">Ro‘yxatdan o‘tish</button>
+          <div class="notice">Ro‘yxatdan so‘ng elektron pochtaga kod yuboriladi</div>
+          <div id="regMsg" class="muted"></div>
+        </section>
+
+        <section id="verify" class="form" style="display:none">
+          <input id="verEmail" placeholder="Email" type="email" />
+          <input id="verCode" placeholder="Tasdiqlash kodi" />
+          <button id="verBtn" class="btn">Tasdiqlash</button>
+          <div id="verMsg" class="muted"></div>
+        </section>
+
+        <section id="forget" class="form" style="display:none">
+          <input id="fogEmail" placeholder="Email" type="email" />
+          <button id="fogBtn" class="btn">Parolni tiklash havolasini yuborish</button>
+          <div id="fogMsg" class="muted"></div>
+        </section>
+
+        <section id="reset" class="form" style="display:none">
+          <input id="resToken" placeholder="Token (URL dan)" />
+          <input id="resPass" placeholder="Yangi parol" type="password" />
+          <button id="resBtn" class="btn">Parolni tiklash</button>
+          <div id="resMsg" class="muted"></div>
+        </section>
+
+        <section id="profile" class="form" style="display:none">
+          <div id="me"></div>
+          <div class="controls">
+            <button id="logoutBtn" class="btn secondary">Chiqish</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    // Small helpers to switch
+    document.addEventListener('click', (e)=>{
+      if(e.target && e.target.id==='goRegister'){ e.preventDefault(); document.querySelector('.tab[data-tab="register"]').click(); }
+      if(e.target && e.target.id==='goForget'){ e.preventDefault(); document.querySelector('.tab[data-tab="forget"]').click(); }
+    });
+  </script>
+</body>
+</html>
