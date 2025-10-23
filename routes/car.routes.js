@@ -7,7 +7,6 @@ const {
   updateCar,
   deleteCar,
 } = require("../controller/car.controller");
-
 const authMiddleware = require("../middleware/auth.middleware");
 const adminCheck = require("../middleware/admin.middleware");
 const upload = require("../middleware/upload.middleware");

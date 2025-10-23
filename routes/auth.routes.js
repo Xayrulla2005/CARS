@@ -9,7 +9,6 @@ const {
   resetPassword,
   getProfile
 } = require("../controller/auth.controller");
-
 const { registerValidator, loginValidator, verifyEmailValidator, forgetPasswordValidator, resetPasswordValidator } = require("../validators/auth.validator");
 const validate = require("../utils/validate");
 const authMiddleware = require("../middleware/auth.middleware");
