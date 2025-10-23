@@ -1,9 +1,8 @@
-// middleware/upload.middleware.js
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
-// ensure uploads folder exists
+
 const uploadDir = path.join(__dirname, "..", "uploads");
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
 
@@ -17,7 +16,6 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  // allow images only
   if (!file.mimetype.startsWith("image/")) {
     return cb(new Error("Only image files are allowed"), false);
   }
@@ -27,7 +25,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 } // 5 MB per file
+  limits: { fileSize: 5 * 1024 * 1024 } 
 });
 
 module.exports = upload;
